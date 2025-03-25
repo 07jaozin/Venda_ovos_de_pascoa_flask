@@ -445,3 +445,6 @@ def logoutADM():
       return redirect('/formulario')
     session.pop('adm', default=None)
     return redirect('/formulario')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=8080)
