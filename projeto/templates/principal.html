@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/ovoChocolate.png')}}" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css')}}">
+
+        <title>Páscoa</title>
+    </head>
+    <body>
+        <img src="{{ url_for('static', filename='img/shape-bg.png')}}" alt="" class="shape__bg">
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
+               Páscoa
+                </a>
+               
+            
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" id="card__home" class="nav__link">Home</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#categoria" class="nav__link">Categorias</a>
+                        </li>
+                        {% if session['logado'] %}
+                        <li class="nav__item">
+                            <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/logout" class="nav__link"><i class='bx bx-exit'></i></a>
+                        </li>
+                        {% else %}
+                        <li class="nav__item">
+                            <a href="/formulario" class="items__button" style="color:#000000"> 
+                                Entrar
+                            </a>
+                        </li>
+                    </ul>
+
+                    {% endif %}
+
+                    <!-- Close botão -->
+                     <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                     </div>
+
+                </div>
+
+                <!--- Toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="shape__small"></div>
+                <div class="shape__big"></div>
+                <div class="home__container container grid">
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            <span>Páscoa</span>
+                            <img src="{{ url_for('static', filename='img/stars.png')}}" alt="home image" class="home__title-img-1">
+                            <img src="{{ url_for('static', filename='img/stars.png')}}" alt="home image" class="home__title-img-2">
+                        </h1>
+
+                        <p class="home__description">
+                            Nesta Páscoa, celebre com seus amigos e
+                            familiares, saboreando as deliciosas variedades 
+                            de chocolates que tornam a data ainda mais especial.
+                        </p>
+
+                       
+
+                    </div>
+
+                   
+                    <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="home image" class="home__img"></div>
+                    <img src="{{ url_for('static', filename='img/coelho2.png')}}" alt="home image" class="home__tree-1">
+                    <img src="{{ url_for('static', filename='img/coelho.png')}}" alt="home image" class="home__tree-2">
+            </section>
+             <!--==================== ABOUT ====================-->
+             <section class="about section" id="about">
+                <div class="shape__small"></div>
+                <div class="shape__big"></div>
+                 
+                <div class="about__container container grid">
+                    <div class="about__data">
+                        <h2 class="section__title">
+                            Sobre 
+                            Nos
+                        </h2>
+                        <p class="about__description">
+                            Somos a sua escolha número um para uma Páscoa mais prática e saborosa! Nosso objetivo é tornar sua 
+                            experiência de compra fácil, 
+                            rápida e cheia de delícias! 
+                            Escolha facilmente
+                             os seus itens favoritos e, deguste dos deliciosos ovos de Páscoa!
+                        </p>
+                       
+                    </div>
+                     <img src="{{ url_for('static', filename='img/ovo.png')}}" alt="about image" class="about__img">
+                </div>
+                
+            </section>
+            <!--==================== CATEGORY ====================-->
+            <section class="category section" id="categoria">
+                <div class="shape__small"></div>
+                <h2 class="section__title">
+                    Selecione sua <br>
+                    categoria
+                </h2>
+
+                <div class="category__container container grid">
+                    <div class="category__card" id="recheado">
+                        <img src="{{ url_for('static', filename='img/OvoRecheado.png')}}" alt="category image" class="category__img">
+                        <h3 class="category__title">Recheado</h3>
+                        <p class="category__description">
+                            O Ovo de Colher é uma opção artesanal de Páscoa, 
+                            com casca de chocolate fina e recheio irresistível. 
+
+                        </p>
+
+                        
+                    </div>
+
+                    <div class="category__card" id="trufado">
+                        <img src="{{ url_for('static', filename='img/fototrufado.png')}}" alt="category image" class="category__img">
+                        <h3 class="category__title">Trufado</h3>
+                        <p class="category__description">
+                    O ovo trufado é uma ótima escolha para a Páscoa, 
+                    com a casca e uma camada crocante de chocolate e um recheio irresistível. 
+                    
+                        </p>
+
+                      
+                    </div>
+
+                    <div class="category__card" id="degustacao">
+                        <img src="{{ url_for('static', filename='img/Kit.png')}}" id="kit" alt="category image" class="category__img">
+                        <h3 class="category__title">Minis ovos</h3>
+                        <p class="category__description">Mini ovos recheados, perfeitos para experimentar diferentes sabores e se deliciar sem precisar escolher apenas um!
+                        </p>
+
+                      
+                    </div>
+                </div>
+            </section>    
+        </main>
+
+
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt'></i>
+        </a>
+        
+        <!--=============== js ===============-->
+        <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+       
+       
+    </body>
+</html>

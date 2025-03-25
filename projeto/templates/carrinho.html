@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/ovoChocolate.png')}}" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/principal.css')}}">
+
+        <title>Páscoa</title>
+    </head>
+    <body>
+        <img src="assets/img/shape-bg.png" alt="" class="shape__bg">
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
+               Páscoa
+                </a>
+               
+            
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="/#home" id="card__home" class="nav__link">Home</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="/#about" class="nav__link">About</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="/categoria" class="nav__link">Categorias</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/logout" class="nav__link"><i class='bx bx-exit'></i></a>
+                        </li>
+                    </ul>
+
+                    <!-- Close botão -->
+                     <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                     </div>
+
+                     <img src="assets/img/nav-bat.png" alt="nav image" class="nav__img">
+                </div>
+
+                <!--- Toggle button -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+        {% if session['enviado'] %}
+        <section class="itens section">
+            <center>
+                <br>
+                <br>
+                <br>
+                <h3 class="items__name">
+                    Otima escolha<i class='bx bx-happy-heart-eyes' ></i><br>
+                    Seu pedido foi enviado com sucesso!!!<br>
+                    Em breve entraremos em contato via Whatszap para finalizarmos a compra!<br>
+
+                    </h3>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="/" class="button">Voltar</a>
+
+
+            </center>
+        
+        </section>
+        {% else %}
+            <div class="itens">
+            {% if carrinho %}
+            {% for item in carrinho %}
+                <article class="items__carrinho carrinho_item">
+                    <h3 class="items__name">{{ item.ovo.nome }}</h3>
+                    <span class="items__price">R${{ item.ovo.preco }},00</span>
+                    <span class="items__price">{{ item.ovo.peso }}g</span>
+                
+                    <a class="sfitems__button" href="{{ url_for('remove_carrinho', id=item.id)}}"> 
+                        <i class='bx bx-x' style="color: #000000"></i>
+                    </a>
+                </article>
+            {% endfor %}
+                <br>
+                <br>
+                <br>
+                <br>
+                <section class="home section">
+                <center>
+                <h3 class="items__name">Total a pagar<span class="items__price">R${{ total }},00</span></h3>
+                
+               <br>
+               <br>
+                
+                <a href="{{ url_for('finalizar_pedido') }}" class="button">Enviar pedido!!!</a>
+                </center>
+                </section>
+            </div>
+            {% else %}
+            <section class="home section">
+                <center>
+                <h3 class="items__name">Seu carrinho esta vazio</h3>
+                <br>
+                <br>
+                <a href="/" class="button">Voltar</a>
+                </center>
+            </section>
+            {% endif %}
+        {% endif %}
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class='bx bx-up-arrow-alt'></i>
+        </a>
+        
+        <!--=============== SCROLLREVEAL ===============-->
+       
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    </body>
+</html>

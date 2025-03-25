@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-box login">
+            <form action="/login" method="post">
+                <h1>Entrar</h1>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p class="erro">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="input-box">
+                    <input type="text" class="input" name="nome-login" id="nome-login" placeholder="Nome" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" class="tel input" name="telefone-login" id="telefone-login" placeholder="Telefone" required>
+                    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+                    <i class='bx bx-phone'></i>
+                </div>
+                <button type="submit" class="btn submit" id="btn-entrar" disabled>Entrar</button>
+            </form>
+        </div>
+        
+        <div class="form-box register">
+            <form action="/cadastrar" method="post">
+                <h1>Cadastrar</h1>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p class="erro">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="input-box">
+                    <input type="text" name="nome" id="nome" class="input" placeholder="Nome" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="telefone" id="telefone" class="tel input" placeholder="Telefone" min="9" max="12" required>
+                    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+                    <i class='bx bx-phone'></i>
+                </div>
+                <button type="submit" class="btn submit" id="btn-cadastrar" disabled>Cadastrar</button>
+            </form>
+        </div>
+        
+
+        
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Ola, Seja bem vindo</h1>
+                <p>Ainda não possui uma conta?</p>
+                <button class="btn register-btn">Cadastrar</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Bem vindo!</h1>
+                <p>Ja fez seu cadastro?</p>
+                <button class="btn login-btn">Entrar</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js')}}"></script>
+</body>
+</html>
