@@ -1,27 +1,28 @@
 # Use uma imagem base do Python
 FROM python:3.9-slim
 
-# Defina o diretório de trabalho para a pasta onde o Flask será executado
-WORKDIR /app/projeto
+# Defina o diretório de trabalho no container
+WORKDIR /app
 
-# Copie o arquivo requirements.txt para o diretório de trabalho
+# Copie apenas o arquivo requirements.txt primeiro para aproveitar o cache do Docker
 COPY requirements.txt /app/
 
-# Atualize o pip para garantir que você tenha a versão mais recente
-RUN pip install --upgrade pip
+# Atualize o pip e instale as dependências do arquivo requirements.txt
+RUN pip install --upgrade pip && pip install -r /app/requirements.txt
 
-# Instale as dependências do requirements.txt
-RUN pip install -r /app/requirements.txt
-
-# Copie o restante do código da aplicação para o diretório de trabalho no container
+# Copie todo o conteúdo do projeto para o diretório de trabalho no container
 COPY . /app/
 
-# Defina a variável de ambiente para o Flask
+# Instale o Gunicorn (caso não esteja no requirements.txt)
+RUN pip install gunicorn
+
+# Defina as variáveis de ambiente do Flask
 ENV FLASK_APP=projeto/app.py
 ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8080
 
-# Exponha a porta que o Flask vai rodar
-EXPOSE 5000
+# Exponha a porta 8080 (se você quiser usar esta porta, como é comum em plataformas como o Railway)
+EXPOSE 8080
 
-# Comando para rodar a aplicação
-CMD ["flask", "run"]
+# Comando para rodar a aplicação com Gunicorn
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "projeto.app:app"]
