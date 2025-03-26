@@ -42,6 +42,14 @@ class CarrinhoTresSabores(db.Model):
     peso = db.Column(db.Integer, nullable = False)
     quantidade = db.Column(db.Integer, nullable = False)
     categoria = db.Column(db.String(100), nullable = False)
+
+    carrinho = db.relationship('Carrinho', backref=db.backref('carrinho_tres_sabores', lazy=True))
+
+    # Relacionamento com Ovos
+    ovo = db.relationship('Ovos', backref=db.backref('carrinho_tres_sabores', lazy=True))
+
+    # Relacionamento com Pessoas
+    usuario = db.relationship('Pessoas', backref=db.backref('carrinho_tres_sabores', lazy=True))
    
  
 
@@ -55,6 +63,7 @@ class Carrinho(db.Model):
     # Relações
     usuario = db.relationship('Pessoas', backref=db.backref('carrinho', lazy=True))
     ovo = db.relationship('Ovos', backref=db.backref('carrinho', lazy = True)) 
+    carrinho_tres_sabores = db.relationship('CarrinhoTresSabores', backref=db.backref('carrinho', lazy=True), cascade="all, delete-orphan")
 
 class Pedido(db.Model):
     id = db.Column(db.Integer, primary_key=True,  autoincrement = True)
@@ -111,7 +120,7 @@ class PedidoPago(db.Model):
 
 with app.app_context():  
     
-    #db.drop_all() #apaga todos os dados
+    db.drop_all() #apaga todos os dados
     db.create_all()  
 
 @app.route('/')
