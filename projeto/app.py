@@ -384,16 +384,18 @@ def finalizar_pedido():
     db.session.add(novo_pedido)
     db.session.commit()  
 
-    quantidade_total = 0
     for item in carrinho_itens:
         ovo = Ovos.query.get(item.id_ovos)
-        if ovo.nome == ovo.categoria:
+        print(ovo.nome)
+        pedido = PedidoItem.query.filter_by(id_pedido = novo_pedido.id, nome_ovo = ovo.nome).first()
+        if pedido:
+             pedido.quantidade +=1
+             pedido.preco_ovo += ovo.preco
+        elif ovo.nome == ovo.categoria:
             print('nada')
         
-        elif ovo and quantidade_total > 0:
-            quantidade_total = quantidade_total + 1
         else:
-            quantidade_total = quantidade_total + 1
+            quantidade_total = 1
             pedido_item = PedidoItem(id_pedido=novo_pedido.id, nome_ovo=ovo.nome, preco_ovo = ovo.preco, nome_usuario = usuario.nome, categoria = ovo.categoria, quantidade = quantidade_total)
             db.session.add(pedido_item)
     for item in carrinho_kits:

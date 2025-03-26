@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,11 +37,11 @@
                         </li>
 
                         <li class="nav__item">
-                            <a href="/categoria" class="nav__link">Categorias</a>
+                            <a href="/#categoria" class="nav__link">Categorias</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
+                            <a href="/#carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
                         </li>
                         <li class="nav__item">
                             <a href="/logout" class="nav__link"><i class='bx bx-exit'></i></a>
@@ -53,7 +53,7 @@
                         <i class='bx bx-x'></i>
                      </div>
 
-                     <img src="assets/img/nav-bat.png" alt="nav image" class="nav__img">
+                     
                 </div>
 
                 <!--- Toggle button -->
@@ -67,7 +67,7 @@
         <main class="main">
             <!--==================== HOME ====================-->
         {% if session['enviado'] %}
-        <section class="itens section">
+        <section class="home section">
             <center>
                 <br>
                 <br>
@@ -96,8 +96,8 @@
                     <span class="items__price">R${{ item.ovo.preco }},00</span>
                     <span class="items__price">{{ item.ovo.peso }}g</span>
                 
-                    <a class="sfitems__button" href="{{ url_for('remove_carrinho', id=item.id)}}"> 
-                        <i class='bx bx-x' style="color: #000000"></i>
+                    <a class="items__button" href="{{ url_for('remove_carrinho', id=item.id)}}"> 
+                       <h3 style="color: #000000">X</h3>
                     </a>
                 </article>
             {% endfor %}
