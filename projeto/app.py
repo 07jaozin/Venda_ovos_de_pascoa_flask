@@ -355,6 +355,7 @@ def remove_carrinho(id):
      carrinho = Carrinho.query.filter_by(id = id).first()
      print(carrinho)
      carrinho_kit = CarrinhoTresSabores.query.filter_by(id_carrinho = id).all()
+     print(carrinho_kit)
 
      if carrinho:
         db.session.delete(carrinho)
