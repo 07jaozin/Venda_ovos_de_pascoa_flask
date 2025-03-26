@@ -113,7 +113,7 @@ class PedidoPago(db.Model):
 
 with app.app_context():  
     
-    db.drop_all() #apaga todos os dados
+    #db.drop_all() #apaga todos os dados
     db.create_all()  
 
 @app.route('/')
