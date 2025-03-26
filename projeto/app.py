@@ -358,12 +358,12 @@ def remove_carrinho(id):
      print(carrinho)
      carrinho_kit = CarrinhoTresSabores.query.filter_by(id_carrinho = id).all()
      print(carrinho_kit)
-
-     if carrinho:
-        db.session.delete(carrinho)
      if carrinho_kit:
          for item in carrinho_kit: #for importante, pois carrinho kit retorna todos, ou seja, uma lista. Não é possivel deletar diretamente como: db.session.delete(carrinho_item)
             db.session.delete(item)
+     if carrinho:
+        db.session.delete(carrinho)
+    
      db.session.commit()
      return redirect('/carrinho')
 
@@ -409,9 +409,9 @@ def finalizar_pedido():
 
     db.session.commit()  
 
-    
-    Carrinho.query.filter_by(id_usuario=session['id']).delete()
     CarrinhoTresSabores.query.filter_by(id_usuario=session['id']).delete()
+    Carrinho.query.filter_by(id_usuario=session['id']).delete()
+   
     db.session.commit()
     session['enviado'] = True
     return redirect('/carrinho')
