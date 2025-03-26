@@ -352,7 +352,7 @@ def adicionar_ao_carrinho(categoria):
 @app.route('/remove_carrinho/<int:id>')
 def remove_carrinho(id):
      if 'logado' not in session:
-      return redirect('/formulario')
+        return redirect('/formulario')
      
      carrinho = Carrinho.query.filter_by(id = id).first()
      print(carrinho)
@@ -361,6 +361,7 @@ def remove_carrinho(id):
      if carrinho_kit:
          for item in carrinho_kit: #for importante, pois carrinho kit retorna todos, ou seja, uma lista. Não é possivel deletar diretamente como: db.session.delete(carrinho_item)
             db.session.delete(item)
+     db.session.commit()
      if carrinho:
         db.session.delete(carrinho)
     
