@@ -63,7 +63,7 @@ class Carrinho(db.Model):
     # Relações
     usuario = db.relationship('Pessoas', backref=db.backref('carrinho', lazy=True))
     ovo = db.relationship('Ovos', backref=db.backref('carrinho', lazy = True)) 
-    carrinho_tres_sabores = db.relationship('CarrinhoTresSabores', backref=db.backref('carrinho', lazy=True), cascade="all, delete-orphan")
+    carrinho_tres_sabores = db.relationship('CarrinhoTresSabores', backref=db.backref('carrinho', lazy=True))
 
 class Pedido(db.Model):
     id = db.Column(db.Integer, primary_key=True,  autoincrement = True)
