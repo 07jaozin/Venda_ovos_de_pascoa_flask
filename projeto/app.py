@@ -134,7 +134,8 @@ def formulario():
 def cadastrar():
     nome = request.form.get('nome')
     telefone_original = request.form.get('telefone')
-    nome_ajustado = nome.lower()
+    nomeSemEspacos = nome.strip()
+    nome_ajustado = nomeSemEspacos.lower()
     telefone = telefone_original.replace(" ","")
     print(telefone)
     pessoa = Pessoas.query.filter_by(telefone = telefone).first()
@@ -152,7 +153,8 @@ def cadastrar():
 def login():
     nome = request.form.get('nome-login')
     telefone_original = request.form.get('telefone-login')
-    nome_ajustado = nome.lower()
+    nomeSemEspacos = nome.strip()
+    nome_ajustado = nomeSemEspacos.lower()
     telefone = telefone_original.replace(" ","")
     print(telefone)
 
