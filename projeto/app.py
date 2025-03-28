@@ -23,7 +23,7 @@ app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900)
 class Pessoas(db.Model):
    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
    nome = db.Column(db.String(100), nullable = False)
-   telefone = db.Column(db.String(11), unique = True, nullable = False)
+   telefone = db.Column(db.String(15), unique = True, nullable = False)
   
 
 class Ovos(db.Model):
@@ -113,7 +113,7 @@ class PedidoPago(db.Model):
 
 with app.app_context():  
     
-    #db.drop_all() #apaga todos os dados
+    db.drop_all() #apaga todos os dados
     db.create_all()  
 
 @app.route('/')
