@@ -44,9 +44,49 @@ document.addEventListener("DOMContentLoaded", function() {
     const telefone = document.getElementById('telefone');
     const btnCadastrar = document.getElementById('btn-cadastrar');
 
+    telefone.addEventListener("input", (event) => {
+        let input = event.target.value;
+
+    // Remove tudo que não for número
+    input = input.replace(/\D/g, '');
+
+    // Formata o número conforme o comprimento
+    if (input.length <= 2) {
+        input = `(${input}`;
+    } else if (input.length <= 7) {
+        input = `(${input.slice(0, 2)}) ${input.slice(2)}`;
+    } else if (input.length <= 10) {
+        input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7)}`;
+    } else {
+        input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7, 11)}`;
+    }
+
+    // Aplica a formatação correta e limpa os caracteres extras
+    event.target.value = input;
+    });
+    telefoneLogin.addEventListener("input", (event) => {
+        let input = event.target.value;
+
+    // Remove tudo que não for número
+    input = input.replace(/\D/g, '');
+
+    // Formata o número conforme o comprimento
+    if (input.length <= 2) {
+        input = `(${input}`;
+    } else if (input.length <= 7) {
+        input = `(${input.slice(0, 2)}) ${input.slice(2)}`;
+    } else if (input.length <= 10) {
+        input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7)}`;
+    } else {
+        input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7, 11)}`;
+    }
+
+    // Aplica a formatação correta e limpa os caracteres extras
+    event.target.value = input;
+    });
     // Função para validar o telefone
     function validarTelefone(telefone) {
-        return telefone.length >= 9 && telefone.length <= 11;
+        return telefone.length === 15;
     }
 
    

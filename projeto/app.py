@@ -161,7 +161,7 @@ def login():
 
     usuario = Pessoas.query.filter_by(nome = nome_ajustado, telefone = telefone).first()
 
-    if nome == 'hahahshdiknxwduicfoewdqwiudmnowqieudhw' and telefone == '16992992992':
+    if nome == 'hahahshdiknxwduicfoewdqwiudmnowqieudhw' and telefone == '(16)99299-2992':
         session['adm'] = True
         return redirect('/gerenciamento')
     if usuario:
