@@ -133,36 +133,7 @@
                     </div>
                        
             </section>
-            <section class="items section" id="Minis">
-                <div class="shape_big"></div>
-                <h2 class="section__title">Selecione seu <br>
-                    Mini ovo trufado</h2>
-
-                    <div class="items__container container grid">
-
-                      <!--=====================Precificar-===================-->
-                {% for ovo in ovos %}
-                        {% if ovo.categoria == 'degustacao' %}
-                        <article class="items__card">
-                        
-                        <h3 class="items__name">{{ ovo.nome }}</h3>
-                        <span class="items__price">R${{ ovo.preco }},00</span>
-                        <span class="items__price">{{ ovo.peso }}g</span>
-
-                        <a href="/adiciona_carrinho/{{ ovo.id_ovos }}" class="items__button"> 
-                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
-                        </a>
-                    </article>
-                    {% endif %}
-                {% endfor %}
-                     
-                    
-
-
-                    </div>
-                       
-            </section>
-            <form action="{{ url_for('adicionar_ao_carrinho', categoria='Kit 3 sabores') }}" method="post" class="items section" id="kitTres">
+            <form action="{{ url_for('adicionar_ao_carrinho', categoria='Kit 3 sabores') }}" method="post" class="items section" id="Minis">
                 <div class="shape_big"></div>
                 <h2 class="section__title">Selecione seu <br>
                     Kit de 3 minis ovos de colher</h2>
