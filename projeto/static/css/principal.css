@@ -166,6 +166,9 @@ img {
 .nav__toggle,
 .nav__close{
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   color: var(--white-color);
 }
 
