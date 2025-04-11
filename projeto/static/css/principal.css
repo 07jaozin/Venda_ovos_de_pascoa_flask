@@ -71,6 +71,7 @@ body {
   color: var(--white-color);
 }
 
+
 ul {
   list-style: none;
 }
@@ -170,7 +171,10 @@ img {
   align-items: center;
   gap: 10px;
   color: var(--white-color);
+  
 }
+
+
 
 .nav__logo{
   align-items: center;
@@ -503,14 +507,47 @@ img {
   padding: .25rem 1.5rem; 
   border-radius: 4rem;
   cursor: pointer;
-  transition: background  .3s;
   border: none;
   outline: none;
  
 }
-
 .items__button i{
+  
   font-size: 1.25rem;
+}
+.items__button img{
+  display: none;
+}
+.items__button.adicionado img{
+  display: block;
+  font-size: 1.25rem;
+  transform: translateY(0);
+ 
+  border-radius: 100%;
+  background-color: #fff;
+ 
+  animation: animate-up 1s linear;
+}
+.items__button.adicionado i{
+ display: none;
+}
+@keyframes animate-up{
+  0%{
+    transform: translateY(0);
+    
+  }
+  25%{
+    transform: translateY(-100%)
+  }
+  50%{
+    transform: translateY(0);
+  }
+  75%{
+    transform: translateY(-50%)
+  }
+  100%{
+    transform: translateY(0);
+  }
 }
 
 .items__button:hover{
@@ -713,9 +750,11 @@ img {
   }
   .nav__toggle,
   .nav__close,
-  .nav__img{
+  .nav__img,
+  #icon-card{
     display: none;
   }
+
   .nav__list{
     flex-direction: row;
     column-gap: 4rem;
