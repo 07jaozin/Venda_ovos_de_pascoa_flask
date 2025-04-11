@@ -45,7 +45,6 @@
                  let mais = document.querySelectorAll('.maisTres');
                  mais.forEach( classe => {
                      classe.classList.remove('disabilitado');
-                     window.href = '/itens#enviarTres'
                  })
              }
      });
@@ -94,7 +93,6 @@
                  let mais = document.querySelectorAll('.maisSeis');
                  mais.forEach( classe => {
                      classe.classList.remove('disabilitado');
-                      window.href = '/itens#enviarSeis'
                  })
                  
              }
@@ -107,25 +105,5 @@
  document.getElementById('enviarTres').addEventListener("click", () => {
    document.getElementById('enviarTres').onsubmit;
  })
- function adicionaCarrinho(event, element){
-   
-   
-    event.preventDefault(); 
-    let id = element.getAttribute('data-id');
-    
-    element.classList.add("adicionado");
-    setTimeout(() => {
-        element.classList.remove("adicionado");
-        console.log('aqui')
-    }, 1000)
 
-    console.log(id)
-    fetch(`/adiciona_carrinho/${id}`)
-        .then(() => {
-                console.log('certo')
-        })
-        .catch(error =>{
-            console.log('erro')
-        });
-}
  
