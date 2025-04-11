@@ -17,6 +17,7 @@ db = SQLAlchemy(app)
 
 app.config['UPLOAD_FOLDER'] = 'static/img'
 app.secret_key="curso_flask"
+app.config["PERMANENT_SESSION_LIFETIME"] = datetime.timedelta(minutes=900000)
 
 
 #tabelas
