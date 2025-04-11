@@ -599,9 +599,7 @@ img {
   }
 }
 
-.items__button:hover{
-  background-color: var(--first-color-alt);
-}
+
 .items__card:hover .items__img{
   transform: translateY(-.5rem)
 }
