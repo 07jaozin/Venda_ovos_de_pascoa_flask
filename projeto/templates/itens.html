@@ -71,9 +71,8 @@
 
                 <!--- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
-                    <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
+                  
                     <i class='bx bx-menu'></i>
-                   
                 </div>
             </nav>
         </header>
@@ -85,7 +84,7 @@
             <section class="items section" id="recheado">
                 <div class="shape_big"></div>
                 <h2 class="section__title">Selecione seu <br>
-                    Ovo de colher</h2>
+                    Ovo recheado</h2>
 
                     <div class="items__container container grid">
 
@@ -97,8 +96,8 @@
                         <span class="items__price">R${{ ovo.preco }},00</span>
                         <span class="items__price">{{ ovo.peso }}g</span>
 
-                        <a href="/adiciona_carrinho/{{ ovo.id_ovos }}" class="items__button"> 
-                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
+                        <a href="#" data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(this)" class="items__button"> 
+                            <i id="degustacao" class='bx bx-heart' style="color:#000000"></i>
                         </a>
                     </article>
                     {% endif %}
@@ -122,7 +121,39 @@
                         <span class="items__price">R${{ ovo.preco }},00</span>
                         <span class="items__price">{{ ovo.peso }}g</span>
 
-                        <a href="/adiciona_carrinho/{{ ovo.id_ovos }}" class="items__button"> 
+                        <a  data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(event, this)" class="items__button"> 
+                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
+                            <center>
+                            <img src="{{ url_for('static', filename='img/correto.png')}}" class="correto" alt="">
+                            </center>
+                        </a>
+                    </article>
+                    {% endif %}
+                {% endfor %}
+                     
+                    
+
+
+                    </div>
+                       
+            </section>
+            <section class="items section" id="Minis">
+                <div class="shape_big"></div>
+                <h2 class="section__title">Selecione seu <br>
+                    Mini ovo trufado</h2>
+
+                    <div class="items__container container grid">
+
+                      <!--=====================Precificar-===================-->
+                {% for ovo in ovos %}
+                        {% if ovo.categoria == 'degustacao' %}
+                        <article class="items__card">
+                        
+                        <h3 class="items__name">{{ ovo.nome }}</h3>
+                        <span class="items__price">R${{ ovo.preco }},00</span>
+                        <span class="items__price">{{ ovo.peso }}g</span>
+
+                        <a data-id="{{ ovo.id_ovos }}; return false" onclick="adicionaCarrinho(this)" class="items__button"> 
                             <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
                         </a>
                     </article>
@@ -141,7 +172,7 @@
                     Kit de 3 minis ovos de colher</h2>
                 <center>
                 <p class="home__description">
-                       Selecione 3 sabores por apenas R$30,00
+                       Selecione 3 sabores por apenas R$20,00
                 </p>
                 </center>
 
@@ -155,7 +186,7 @@
                         
                         <span class="items__price">{{ ovo.peso }}g</span>
 
-                        <!--<a href="/adiciona_carrinho/{{ ovo.id_ovos }}" class="items__button"> -->
+                       
                         <div class="container_bottom">
                             <a class="menosTres" href="javascript:void(0);" data-ovo-id="{{ ovo.id_ovos }}">-</a>
                             <input type="text" name="quantidades[{{ ovo.id_ovos }}]" class="quantidade" value="0" id="quantidadeTres_{{ ovo.id_ovos }}">
@@ -177,13 +208,13 @@
                     </center>
                        
             </form>
-            <form action="{{ url_for('adicionar_ao_carrinho', categoria='Kit 6 sabores') }}" method="post" class="items section" id="kitSeis">
+            <form action="{{ url_for('adicionar_ao_carrinho', categoria='Kit 6 sabores') }}" method="post" class="items section" id="Minis">
                 <div class="shape_big"></div>
                 <h2 class="section__title">Selecione seu <br>
-                    Kit de 6 minis ovos de colher</h2>
+                    Kit de 6 Ovos</h2>
                 <center>
                 <p class="home__description">
-                       Selecione 6 sabores por apenas R$50,00
+                       Selecione 6 sabores por apenas R$35,00
                 </p>
                 </center>
 
@@ -196,7 +227,7 @@
                         <h3 class="items__name">{{ ovo.nome }}</h3>
                         <span class="items__price">{{ ovo.peso }}g</span>
 
-                        <!--<a href="/adiciona_carrinho/{{ ovo.id_ovos }}" class="items__button"> -->
+                        
                         <div class="container_bottom">
                             <a class="menosSeis" href="javascript:void(0);" data-ovo-id="{{ ovo.id_ovos }}">-</a>
                             <input type="text" name="quantidades[{{ ovo.id_ovos }}]" class="quantidade" value="0" id="quantidadeSeis_{{ ovo.id_ovos }}">
@@ -219,20 +250,15 @@
                        
             </form>
 
-        <!--==================== FOOTER ====================-->
-        <footer class="footer section">
-            
-        </footer>
-
         <!--========== SCROLL UP ==========-->
         <a href="#" class="scrollup" id="scroll-up">
             <i class='bx bx-up-arrow-alt'></i>
         </a>
         
-        <!--=============== SCROLLREVEAL ===============-->
+      
        
 
-        <!--=============== MAIN JS ===============-->
+        <!--=============== JS ===============-->
         <script src="{{ url_for('static', filename='js/main.js')}}"></script>
         <script src="{{ url_for('static', filename='js/itens.js')}}"></script>
        
