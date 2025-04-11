@@ -483,6 +483,7 @@ img {
   display: flex;
   flex-direction: column;
   gap:20px;
+  align-items: center;
   
 }
 
@@ -510,12 +511,14 @@ img {
   border: none;
   outline: none;
   overflow: hidden;
-  
+  width: 125px;
  
 }
 .items__button i{
   
   font-size: 1.25rem;
+  left: 50%;
+  transform: translateX(0);
 }
 .items__button #correto{
   display: none;
@@ -529,6 +532,8 @@ img {
   transform: translateX(0);
  
   border-radius: 100%;
+  left: 50%;
+  transform: translateX(0);
   
  
   animation: animate-up 4s linear;
@@ -537,8 +542,10 @@ img {
   display: block;
   animation: animate-down 4s linear;
   position: absolute;
+  left: 48%;
+  transform: translateX(0);
+ transform: translateX(-48%);
  
-  margin-left: 25%;
   opacity: 1;
  
   
@@ -550,10 +557,10 @@ img {
     
   }
 20%{
-   transform: translateX(0%);
+   transform: translateX(4%);
   }
   80%{
-    transform: translateX(0%);
+    transform: translateX(4%);
   }
   100%{
     transform: translateX(300%);
@@ -580,7 +587,7 @@ img {
   26%{
     
     transform: translateY(2%);
-    transform: translateX(0);
+    
     visibility: hidden;
     
   }
@@ -591,7 +598,6 @@ img {
     
   }
 }
-
 
 .items__button:hover{
   background-color: var(--first-color-alt);
@@ -718,7 +724,7 @@ img {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 340px){
- 
+
   .container{
     margin-inline: 1rem;
   }
@@ -750,7 +756,6 @@ img {
  
 }
 
-/* For medium devices */
 @media screen and (min-width: 576px){
   .home__tree-1,
   .home__tree-2{
@@ -926,9 +931,7 @@ img {
 .items__name{
   font-size: var(--h3-font-size)
 }
-.items__button i{
-  font-size: 1.5rem;
-}
+
 .items .shape__big{
   bottom: -12rem;
 }

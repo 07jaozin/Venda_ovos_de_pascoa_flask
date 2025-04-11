@@ -21,8 +21,8 @@
         <header class="header" id="header">
             <nav class="nav container">
                 <a href="#" class="nav__logo">
-                <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
-               Páscoa
+                    <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
+                Páscoa
                 </a>
                
             
@@ -30,19 +30,20 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#home" id="card__home" class="nav__link">Home</a>
+                            <a href="/#home" id="card__home" class="nav__link">Home</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="#about" class="nav__link">About</a>
+                            <a href="/itens#recheado" class="nav__link">Recheado</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="#categoria" class="nav__link">Categorias</a>
+                            <a href="/itens#trufado" class="nav__link">Trufado</a>
                         </li>
                         <li class="nav__item">
-                            <a href="/itens" class="nav__link">Ovos</a>
+                            <a href="/itens#Minis" class="nav__link">Minis</a>
                         </li>
+
                         {% if session['logado'] %}
                         <li class="nav__item">
                             <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
@@ -65,13 +66,13 @@
                         <i class='bx bx-x'></i>
                      </div>
 
+                     
                 </div>
 
                 <!--- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
-                    <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
+                  
                     <i class='bx bx-menu'></i>
-                   
                 </div>
             </nav>
         </header>
@@ -99,10 +100,9 @@
                         <i  data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(event, this)" class="items__button"> 
                             <center>
                             <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
-                          
-                            <i class='bx bx-cart' class="correto" alt=""></i>
-                        </center>
                             
+                             <i class='bx bx-cart' id="correto" alt=""></i>
+                         </center>
                         </i>
                         {% else %}
                         <a href="/formulario" class="items__button"> 
@@ -136,10 +136,9 @@
                         <i  data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(event, this)" class="items__button"> 
                             <center>
                             <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
-                          
-                            <i class='bx bx-cart' class="correto" alt=""></i>
-                        </center>
                             
+                             <i class='bx bx-cart' id="correto" alt=""></i>
+                         </center>
                         </i>
                         {% else %}
                         <a href="/formulario" class="items__button"> 
@@ -156,9 +155,7 @@
                     </div>
                        
             </section>
-           
-
-                   
+            
             <form action="{{ url_for('adicionar_ao_carrinho', categoria='Kit 3 sabores') }}" method="post" class="items section" id="Minis">
                 <div class="shape_big"></div>
                 <h2 class="section__title">Selecione seu <br>
