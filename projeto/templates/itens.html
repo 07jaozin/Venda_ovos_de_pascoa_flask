@@ -16,13 +16,13 @@
         <title>Itens</title>
     </head>
     <body>
-        <img src="assets/img/shape-bg.png" alt="" class="shape__bg">
+        <img src="{{ url_for('static', filename='img/shape-bg.png')}}" alt="" class="shape__bg">
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
                 <a href="#" class="nav__logo">
-                    <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
-                Páscoa
+                <img src="{{ url_for('static', filename='img/ovoChocolate.png')}}" alt="logo image">
+               Páscoa
                 </a>
                
             
@@ -30,20 +30,19 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="/#home" id="card__home" class="nav__link">Home</a>
+                            <a href="#home" id="card__home" class="nav__link">Home</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="/itens#recheado" class="nav__link">Recheado</a>
+                            <a href="#about" class="nav__link">About</a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="/itens#trufado" class="nav__link">Trufado</a>
+                            <a href="#categoria" class="nav__link">Categorias</a>
                         </li>
                         <li class="nav__item">
-                            <a href="/itens#Minis" class="nav__link">Minis</a>
+                            <a href="/itens" class="nav__link">Ovos</a>
                         </li>
-
                         {% if session['logado'] %}
                         <li class="nav__item">
                             <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
@@ -66,13 +65,13 @@
                         <i class='bx bx-x'></i>
                      </div>
 
-                     
                 </div>
 
                 <!--- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">
-                  
+                    <a href="/carrinho" class="nav__link"><i class='bx bx-cart'></i></a>
                     <i class='bx bx-menu'></i>
+                   
                 </div>
             </nav>
         </header>
