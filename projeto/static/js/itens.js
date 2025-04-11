@@ -117,7 +117,7 @@
     setTimeout(() => {
         element.classList.remove("adicionado");
         console.log('aqui')
-    }, 1000)
+    }, 3850)
 
     console.log(id)
     fetch(`/adiciona_carrinho/${id}`)

@@ -509,46 +509,89 @@ img {
   cursor: pointer;
   border: none;
   outline: none;
+  overflow: hidden;
+  
  
 }
 .items__button i{
   
   font-size: 1.25rem;
 }
-.items__button img{
+.items__button #correto{
   display: none;
 }
-.items__button.adicionado img{
+.items__button.adicionado{
+  overflow: hidden !important;
+}
+.items__button.adicionado #correto{
   display: block;
-  font-size: 1.25rem;
-  transform: translateY(0);
+  font-size: 1.55rem;
+  transform: translateX(0);
  
   border-radius: 100%;
-  background-color: #fff;
+  
  
-  animation: animate-up 1s linear;
+  animation: animate-up 4s linear;
 }
-.items__button.adicionado i{
- display: none;
+.items__button.adicionado .bx-heart{
+  display: block;
+  animation: animate-down 4s linear;
+  position: absolute;
+ 
+  margin-left: 25%;
+  opacity: 1;
+ 
+  
+  
 }
 @keyframes animate-up{
   0%{
-    transform: translateY(0);
+   transform: translateX(-300%);
     
   }
-  25%{
-    transform: translateY(-100%)
+20%{
+   transform: translateX(0%);
   }
-  50%{
-    transform: translateY(0);
-  }
-  75%{
-    transform: translateY(-50%)
+  80%{
+    transform: translateX(0%);
   }
   100%{
+    transform: translateX(300%);
+  }
+
+  
+}
+@keyframes animate-down{
+  0%{
+   
+   transform: translateY(-100%);
+    
+  }
+  20%{
+   
+    transform: translateY(-100%);
+     
+   }
+  24%{
+   
     transform: translateY(0);
+     
+   }
+  26%{
+    
+    transform: translateY(2%);
+    transform: translateX(0);
+    visibility: hidden;
+    
+  }
+  100%{
+    
+    transform: translateX(300%);
+    visibility: hidden;
+    
   }
 }
+
 
 .items__button:hover{
   background-color: var(--first-color-alt);

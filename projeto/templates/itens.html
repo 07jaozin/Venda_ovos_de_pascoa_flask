@@ -97,10 +97,12 @@
                         
                         {% if session['logado'] %}
                         <i  data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(event, this)" class="items__button"> 
-                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
                             <center>
-                            <img src="{{ url_for('static', filename='img/correto.png')}}" class="correto" alt="">
-                            </center>
+                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
+                          
+                            <i class='bx bx-cart' class="correto" alt=""></i>
+                        </center>
+                            
                         </i>
                         {% else %}
                         <a href="/formulario" class="items__button"> 
@@ -132,10 +134,12 @@
 
                         {% if session['logado'] %}
                         <i  data-id="{{ ovo.id_ovos }}" onclick="adicionaCarrinho(event, this)" class="items__button"> 
-                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
                             <center>
-                            <img src="{{ url_for('static', filename='img/correto.png')}}" class="correto" alt="">
-                            </center>
+                            <i  id="degustacao" class='bx bx-heart' style="color:#000000"></i>
+                          
+                            <i class='bx bx-cart' class="correto" alt=""></i>
+                        </center>
+                            
                         </i>
                         {% else %}
                         <a href="/formulario" class="items__button"> 
