@@ -181,6 +181,19 @@
         
         <!--=============== js ===============-->
         <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+        <script>
+            document.querySelector('#degustacao').addEventListener('click', function() {
+                window.location.href = '/itens#Minis';  // Redireciona para outra página
+                        
+            });
+            document.querySelector('#recheado').addEventListener('click', function() {
+                window.location.href = '/itens#recheado';  // Redireciona para outra página
+            });  
+            document.querySelector('#trufado').addEventListener('click', function() {
+                window.location.href = '/itens#trufado';  // Redireciona para outra página
+            
+            });
+        </script>
 
        
        

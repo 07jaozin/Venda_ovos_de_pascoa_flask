@@ -71,17 +71,7 @@ window.addEventListener('scroll', scrollUp)
 
 
 
-document.querySelector('#degustacao').addEventListener('click', function() {
-    window.location.href = '/itens#Minis';  // Redireciona para outra página
 
-});
-document.querySelector('#recheado').addEventListener('click', function() {
-    window.location.href = '/itens#recheado';  // Redireciona para outra página
-});  
-document.querySelector('#trufado').addEventListener('click', function() {
-    window.location.href = '/itens#trufado';  // Redireciona para outra página
-    
-});
 console.log(document.querySelector('#degustacao'));
 console.log(document.querySelector('#recheado'));
 console.log(document.querySelector('#trufado'));
