@@ -96,9 +96,7 @@
                     <span class="items__price">R${{ item.ovo.preco }},00</span>
                     <span class="items__price">{{ item.ovo.peso }}g</span>
                 
-                    <a class="items__button" href="{{ url_for('remove_carrinho', id=item.id)}}"> 
-                       <h3 style="color: #000000">X</h3>
-                    </a>
+                    <i data-id="{{ item.id }}" onclick="removerItem(this)" style="color:  hsl(17, 60%, 48%);" id="x" class="bx bx-x"></i>
                 </article>
             {% endfor %}
                 <br>
@@ -139,5 +137,22 @@
 
         <!--=============== JS ===============-->
         <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+        <script>
+            function removerItem(element){
+                let id = element.getAttribute('data-id');
+                console.log(id)
+                fetch(`/remove_carrinho/${id}`)
+                    .then(() => {
+                        console.log('certo')
+                        location.reload();
+                    })
+
+                    .catch(error => {
+                        console.error(error)
+                    });
+                
+
+            }
+        </script>
     </body>
 </html>

@@ -599,7 +599,9 @@ img {
   }
 }
 
-
+#x{
+  font-size: 1.7rem;
+}
 .items__card:hover .items__img{
   transform: translateY(-.5rem)
 }
